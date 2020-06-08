@@ -6,4 +6,4 @@ https://programmers.co.kr/
 
 
 ### 링크
-[블로그](https://ljg960730.tistory.com)
+[개인블로그](https://ljg960730.tistory.com)
