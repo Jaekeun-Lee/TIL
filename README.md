@@ -1,8 +1,5 @@
-Programmers_Java
+Java_Study
 ============
-https://programmers.co.kr/
-
-코딩테스트 연습문제 기록
 
 
 ### 링크
