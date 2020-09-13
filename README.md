@@ -1,4 +1,4 @@
-# TIL
+# Today I Learned ( TIL )
 [![BLOG](https://user-images.githubusercontent.com/64590527/93013994-23cbd480-f5e8-11ea-971f-2837fc49ba5d.JPG)](https://ljg960730.tistory.com/)    
 :octocat: Today I Learned !
 
