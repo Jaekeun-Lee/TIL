@@ -1,5 +1,5 @@
 # Today I Learned(TIL) Wiki
-[![BLOG](https://user-images.githubusercontent.com/64590527/93013974-e8310a80-f5e7-11ea-9947-da9ffbd951d7.JPG)](https://ljg960730.tistory.com/)
+[![BLOG](https://user-images.githubusercontent.com/64590527/93013994-23cbd480-f5e8-11ea-971f-2837fc49ba5d.JPG)](https://ljg960730.tistory.com/)
 
 ## Java
 * [Programmers](https://github.com/Jaekeun-Lee/TIL/tree/master/JAVA/Programmers)
