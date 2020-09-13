@@ -1,59 +1,59 @@
 import java.util.Random;
 import java.util.Scanner;
 import java.util.InputMismatchException;
-
+ 
 public class GuessNumberGame {
 	
 	public static void main(String[] args) {
-		int low, high; // Ä«µå¿¡ ÀûÈù ¼öÀÇ ¹üÀ§
-		int card; // Ä«µå¿¡ ÀûÈù ¹øÈ£ °ª(¼û±â´Â °ª, Á¤´ä)
-		Random r = new Random(); // ³­¼ö ¹ß»ý±â »ý¼º
-		Scanner scanner = new Scanner(System.in); // Å°º¸µå ÀÔ·Â±â »ý¼º
+		int low, high; // ì¹´ë“œì— ì ížŒ ìˆ˜ì˜ ë²”ìœ„
+		int card; // ì¹´ë“œì— ì ížŒ ë²ˆí˜¸ ê°’(ìˆ¨ê¸°ëŠ” ê°’, ì •ë‹µ)
+		Random r = new Random(); // ë‚œìˆ˜ ë°œìƒê¸° ìƒì„±
+		Scanner scanner = new Scanner(System.in); // í‚¤ë³´ë“œ ìž…ë ¥ê¸° ìƒì„±
 		
-		// "n"°¡ ÀÔ·ÂµÉ ¶§±îÁö ¹Ýº¹ÇÏ¿© °ÔÀÓÀ» ÁøÇàÇÑ´Ù.
+		// "n"ê°€ ìž…ë ¥ë  ë•Œê¹Œì§€ ë°˜ë³µí•˜ì—¬ ê²Œìž„ì„ ì§„í–‰í•œë‹¤.
 		while(true) {
-			int i=0; // »ç¿ëÀÚÀÇ ½ÃÇà È½¼ö
-			low = 0; // Ä«µå °ªÀÇ ÃÖ¼Ò ¹üÀ§
-			high = 99; // Ä«µå °ªÀÇ ÃÖ´ë ¹üÀ§			
-			card = r.nextInt(100);// 0°ú  99 »çÀÌÀÇ Á¤¼ö ³­¼ö(¼û±â´Â °ª) »ý¼º
-			System.out.println("¼ö¸¦ °áÁ¤ÇÏ¿´½À´Ï´Ù. ¸ÂÃß¾î º¸¼¼¿ä");
+			int i=0; // ì‚¬ìš©ìžì˜ ì‹œí–‰ íšŸìˆ˜
+			low = 0; // ì¹´ë“œ ê°’ì˜ ìµœì†Œ ë²”ìœ„
+			high = 99; // ì¹´ë“œ ê°’ì˜ ìµœëŒ€ ë²”ìœ„			
+			card = r.nextInt(100);// 0ê³¼  99 ì‚¬ì´ì˜ ì •ìˆ˜ ë‚œìˆ˜(ìˆ¨ê¸°ëŠ” ê°’) ìƒì„±
+			System.out.println("ìˆ˜ë¥¼ ê²°ì •í•˜ì˜€ìŠµë‹ˆë‹¤. ë§žì¶”ì–´ ë³´ì„¸ìš”");
 			
 			while(true) {
-				System.out.println(low +"-" + high); // °ªÀÇ ¹üÀ§ Ãâ·Â
-				System.out.print(i+1+">>"); // ½ÃÇà È½¼ö Ãâ·Â
+				System.out.println(low +"-" + high); // ê°’ì˜ ë²”ìœ„ ì¶œë ¥
+				System.out.print(i+1+">>"); // ì‹œí–‰ íšŸìˆ˜ ì¶œë ¥
 				int n=0;
 
 				try {
-					n= scanner.nextInt(); // ¼ö¸¦ ÀÔ·Â¹Þ´Â´Ù.
+					n= scanner.nextInt(); // ìˆ˜ë¥¼ ìž…ë ¥ë°›ëŠ”ë‹¤.
 				} 
-				catch(InputMismatchException e) { // Å° ÀÔ·ÂÀ» Á¤¼ö·Î º¯È¯ÇÏÁö ¸øÇÏ´Â ¿¹¿Ü Ã³¸® 
-					System.out.println("Á¤¼ö¸¸ ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù!!");
-					scanner.nextLine(); // ³ª¸ÓÁö ¸ðµç Å°¸¦ ÀÐ¾î¼­ ¹ö¸°´Ù.
-					continue; // ´Ù½Ã ½ÃµµÇÑ´Ù.
+				catch(InputMismatchException e) { // í‚¤ ìž…ë ¥ì„ ì •ìˆ˜ë¡œ ë³€í™˜í•˜ì§€ ëª»í•˜ëŠ” ì˜ˆì™¸ ì²˜ë¦¬ 
+					System.out.println("ì •ìˆ˜ë§Œ ìž…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤!!");
+					scanner.nextLine(); // ë‚˜ë¨¸ì§€ ëª¨ë“  í‚¤ë¥¼ ì½ì–´ì„œ ë²„ë¦°ë‹¤.
+					continue; // ë‹¤ì‹œ ì‹œë„í•œë‹¤.
 				}
 				
-				if(n>high || n<low) // high¿Í lowÀÇ ¹üÀ§¸¦ ¹þ¾î³­ °æ¿ì
-					System.out.println("¹üÀ§¸¦ ¹þ¾î³µ¾î¿ä");
-				else {// Á¤»óÀûÀÎ ¹üÀ§ÀÇ ¼ö°¡ ÀÔ·ÂµÈ °æ¿ì
+				if(n>high || n<low) // highì™€ lowì˜ ë²”ìœ„ë¥¼ ë²—ì–´ë‚œ ê²½ìš°
+					System.out.println("ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ì–´ìš”");
+				else {// ì •ìƒì ì¸ ë²”ìœ„ì˜ ìˆ˜ê°€ ìž…ë ¥ëœ ê²½ìš°
 					if(n==card) {
-						System.out.println("¸Â¾Ò½À´Ï´Ù.");
-						break; // while ¹® Á¾·á
+						System.out.println("ë§žì•˜ìŠµë‹ˆë‹¤.");
+						break; // while ë¬¸ ì¢…ë£Œ
 					}
-					else if(n>card){ // ÀÔ·ÂµÈ °ªÀÌ Á¤´äº¸´Ù ³ôÀº ¹üÀ§ÀÇ ¼öÀÎ °æ¿ì 
-						System.out.println("´õ ³·°Ô");
+					else if(n>card){ // ìž…ë ¥ëœ ê°’ì´ ì •ë‹µë³´ë‹¤ ë†’ì€ ë²”ìœ„ì˜ ìˆ˜ì¸ ê²½ìš° 
+						System.out.println("ë” ë‚®ê²Œ");
 						high = n;					
 					}
-					else { // ÀÔ·ÂµÈ °ªÀÌ Á¤´äº¸´Ù ³·Àº ¹üÀ§ÀÇ ¼öÀÎ °æ¿ì
-						System.out.println("´õ ³ô°Ô");
+					else { // ìž…ë ¥ëœ ê°’ì´ ì •ë‹µë³´ë‹¤ ë‚®ì€ ë²”ìœ„ì˜ ìˆ˜ì¸ ê²½ìš°
+						System.out.println("ë” ë†’ê²Œ");
 						low = n;									
 					}
 				}
-				i++; // ½ÃÇà È½¼ö Áõ°¡
+				i++; // ì‹œí–‰ íšŸìˆ˜ ì¦ê°€
 			} // end of while
 			
-			System.out.print("´Ù½ÃÇÏ½Ã°Ú½À´Ï±î(y/n)>>");
+			System.out.print("ë‹¤ì‹œí•˜ì‹œê² ìŠµë‹ˆê¹Œ(y/n)>>");
 			if(scanner.next().equals("n"))
-				break; // while ¹® Á¾·á
+				break; // while ë¬¸ ì¢…ë£Œ
 		}// end of while
 	} // end of while
 }
