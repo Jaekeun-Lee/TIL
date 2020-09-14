@@ -1,19 +1,19 @@
 import java.util.Scanner;
 
-/*
+/* 
 
- 1. ¼±ÅÃÁ¤·Ä (SelectionSort) : ÀüÃ¼ ¿ø¼Òµé Áß¿¡¼­ ±âÁØ À§Ä¡¿¡ ¸Â´Â ¿ø¼Ò¸¦ ¼±ÅÃÇÏ¿© ÀÚ¸®¸¦ ±³È¯ÇÏ´Â ¹æ½Ä
- 2. ¹öºí Á¤·Ä(BubbleSort) : ÀÎÁ¢ÇÑ µÎ°³ÀÇ ¿ø¼Ò¸¦ ºñ±³ÇÏ¿© ÀÚ¸®¸¦ ±³È¯ÇÏ´Â ¹æ½ÄÀ¸·Î Á¤·Ä (°£´ÜÇÏÁö¸¸ Á¤·ÄÀÌ ³¡³ªµµ °è¼Ó ºñ±³ÇÑ´Ù´Â ´ÜÁ¡)
- 3. »ğÀÔ Á¤·Ä(InsertSort) : Á¤·ÄµÇ¾î ÀÖ´Â ºÎºĞÁıÇÕ¿¡ »õ·Î¿î ¿ø¼ÒÀÇ À§Ä¡¸¦ Ã£¾Æ »ğÀÔÇÏ´Â Á¤·Ä¹æ½Ä
+ 1. ì„ íƒì •ë ¬ (SelectionSort) : ì „ì²´ ì›ì†Œë“¤ ì¤‘ì—ì„œ ê¸°ì¤€ ìœ„ì¹˜ì— ë§ëŠ” ì›ì†Œë¥¼ ì„ íƒí•˜ì—¬ ìë¦¬ë¥¼ êµí™˜í•˜ëŠ” ë°©ì‹
+ 2. ë²„ë¸” ì •ë ¬(BubbleSort) : ì¸ì ‘í•œ ë‘ê°œì˜ ì›ì†Œë¥¼ ë¹„êµí•˜ì—¬ ìë¦¬ë¥¼ êµí™˜í•˜ëŠ” ë°©ì‹ìœ¼ë¡œ ì •ë ¬ (ê°„ë‹¨í•˜ì§€ë§Œ ì •ë ¬ì´ ëë‚˜ë„ ê³„ì† ë¹„êµí•œë‹¤ëŠ” ë‹¨ì )
+ 3. ì‚½ì… ì •ë ¬(InsertSort) : ì •ë ¬ë˜ì–´ ìˆëŠ” ë¶€ë¶„ì§‘í•©ì— ìƒˆë¡œìš´ ì›ì†Œì˜ ìœ„ì¹˜ë¥¼ ì°¾ì•„ ì‚½ì…í•˜ëŠ” ì •ë ¬ë°©ì‹
  
  */
 
 public class SortApp {
 
 	public static int size;
-	// ¼±ÅÃÁ¤·Ä ( SelectionSort )
+	// ì„ íƒì •ë ¬ ( SelectionSort )
 	private static void selectionSort(int[] arr) {
-		// Áö¿ªº¯¼ö
+		// ì§€ì—­ë³€ìˆ˜
 		int min;
 		int temp;
 		size = arr.length;
@@ -28,15 +28,15 @@ public class SortApp {
 			arr[i] = arr[min];
 			arr[min] = temp;
 
-			System.out.print((i + 1) + "Â÷ ¼öÇà °á°ú = [ ");
+			System.out.print((i + 1) + "ì°¨ ìˆ˜í–‰ ê²°ê³¼ = [ ");
 			for (int a : arr) {
 				System.out.print(a + " ");
 			}
 			System.out.println("]");
 		}
 
-		System.out.println("\n¼±ÅÃ Á¤·ÄÀ» ¿Ï·áÇÏ¿´½À´Ï´Ù.");
-		System.out.print("==> Á¤·ÄµÈ ¹è¿­ = [ ");
+		System.out.println("\nì„ íƒ ì •ë ¬ì„ ì™„ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.");
+		System.out.print("==> ì •ë ¬ëœ ë°°ì—´ = [ ");
 		for (int a : arr) {
 			System.out.print(a + " ");
 		}
@@ -57,15 +57,15 @@ public class SortApp {
 				}
 
 			}
-			System.out.print((i + 1) + "Â÷ ¼öÇà °á°ú = [ ");
+			System.out.print((i + 1) + "ì°¨ ìˆ˜í–‰ ê²°ê³¼ = [ ");
 			for (int a : arr) {
 				System.out.print(a + " ");
 			}
 			System.out.println("]");
 		}
 
-		System.out.println("\n¼±ÅÃ Á¤·ÄÀ» ¿Ï·áÇÏ¿´½À´Ï´Ù.");
-		System.out.print("==> Á¤·ÄµÈ ¹è¿­ = [ ");
+		System.out.println("\nì„ íƒ ì •ë ¬ì„ ì™„ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.");
+		System.out.print("==> ì •ë ¬ëœ ë°°ì—´ = [ ");
 		for (int a : arr) {
 			System.out.print(a + " ");
 		}
@@ -85,14 +85,14 @@ public class SortApp {
 				j--;
 			}
 			arr[j] = temp;
-			System.out.print(i + "Â÷ ¼öÇà °á°ú = [ ");
+			System.out.print(i + "ì°¨ ìˆ˜í–‰ ê²°ê³¼ = [ ");
 			for (int a : arr) {
 				System.out.print(a + " ");
 			}
 			System.out.println("]");
 		}
-		System.out.println("\n¼±ÅÃ Á¤·ÄÀ» ¿Ï·áÇÏ¿´½À´Ï´Ù.");
-		System.out.print("==> Á¤·ÄµÈ ¹è¿­ = [ ");
+		System.out.println("\nì„ íƒ ì •ë ¬ì„ ì™„ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.");
+		System.out.print("==> ì •ë ¬ëœ ë°°ì—´ = [ ");
 		for (int a : arr) {
 			System.out.print(a + " ");
 		}
@@ -105,12 +105,12 @@ public class SortApp {
 
 		while (true) {
 			int[] arr = { 3, 24, 1, 55, 17, 43, 5 };
-			System.out.print("1.¼±ÅÃÁ¤·Ä\t2.¹öºíÁ¤·Ä\t3.»ğÀÔÁ¤·Ä\t | Á¾·á:-1 \n");
-			System.out.print("Á¤·ÄÇÒ ¹è¿­ÀÇ ¿ø¼Òµé : [ ");
+			System.out.print("1.ì„ íƒì •ë ¬\t2.ë²„ë¸”ì •ë ¬\t3.ì‚½ì…ì •ë ¬\t | ì¢…ë£Œ:-1 \n");
+			System.out.print("ì •ë ¬í•  ë°°ì—´ì˜ ì›ì†Œë“¤ : [ ");
 			for (int a : arr) {
 				System.out.print(a + "  ");
 			}
-			System.out.print("]\nÁ¤·Ä ¾Ë°í¸®Áò ¼±ÅÃ : ");
+			System.out.print("]\nì •ë ¬ ì•Œê³ ë¦¬ì¦˜ ì„ íƒ : ");
 			int inputNum = sc.nextInt();
 
 			switch (inputNum) {
@@ -127,7 +127,7 @@ public class SortApp {
 				break;
 			}
 			if (inputNum == -1) {
-				System.out.println("ÇÁ·Î±×·¥ÀÌ Á¾·áµÇ¾ú½À´Ï´Ù.");
+				System.out.println("í”„ë¡œê·¸ë¨ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 				sc.close();
 				break;
 
