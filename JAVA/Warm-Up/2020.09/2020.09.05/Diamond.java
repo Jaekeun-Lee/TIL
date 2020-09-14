@@ -1,19 +1,19 @@
 import java.util.Scanner;
 
-// ÀÔ·Â ¼ıÀÚ°¡ Áß¾ÓÃşÀÌ µÇ´Â ´ÙÀÌ¾Æ¸óµå
+// ì…ë ¥ ìˆ«ìê°€ ì¤‘ì•™ì¸µì´ ë˜ëŠ” ë‹¤ì´ì•„ëª¬ë“œ 
 public class Diamond {
 
-	// »ó´Ü ~ Áß¾Ó±îÁö »ï°¢Çü
+	// ìƒë‹¨ ~ ì¤‘ì•™ê¹Œì§€ ì‚¼ê°í˜•
 	public static void draw(int num) {
 		
 		for (int i = num,count = 1; i > 0; i -= 2,count += 2) {
 
-			// ¶óÀÎ °ø¹é
+			// ë¼ì¸ ê³µë°±
 			for (int j = 1; j <= (i / 2); j++) {
 				System.out.print(" ");
 			}
 
-			// º° Âï±â
+			// ë³„ ì°ê¸°
 			for (int star = 0; star < count; star++) {
 				System.out.print("*");
 			}
@@ -23,12 +23,12 @@ public class Diamond {
 		
 		for (int i = 1,count=num-2; i <= num; i += 2,count-=2) {
 
-			// ¶óÀÎ °ø¹é
+			// ë¼ì¸ ê³µë°±
 			for (int j = 1; j <= i; j += 2) {
 				System.out.print(" ");
 			}
 
-			// º° Âï±â
+			// ë³„ ì°ê¸°
 			for (int star = 0; star < count; star++) {
 				System.out.print("*");
 			}
@@ -41,12 +41,12 @@ public class Diamond {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("´ÙÀÌ¾Æ¸óµå Áß¾ÓÃşÀÇ °¹¼ö ¼ıÀÚ ÀÔ·Â(È¦¼ö¸¸) : ");
+		System.out.print("ë‹¤ì´ì•„ëª¬ë“œ ì¤‘ì•™ì¸µì˜ ê°¯ìˆ˜ ìˆ«ì ì…ë ¥(í™€ìˆ˜ë§Œ) : ");
 		int num = sc.nextInt();
 
-		// À¯È¿¼º °Ë»ç
+		// ìœ íš¨ì„± ê²€ì‚¬
 		if (num % 2 == 0) {
-			System.out.println("È¦¼ö¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+			System.out.println("í™€ìˆ˜ë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		}
 
 		else { // draw Method
