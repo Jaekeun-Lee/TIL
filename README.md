@@ -11,7 +11,7 @@
 
 
 ## 도서
-* [Do it 자료구조와함께배우는알고리즘입문](https://github.com/Jaekeun-Lee/TIL)
+
 
 
 ## ETC
