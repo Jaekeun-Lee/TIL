@@ -10,7 +10,7 @@ public class Distinct {
 		for (int i = 0; i < arr.length; i++) {
 
 			if (preNum != arr[i]) {
-				al.add(arr[i]); 
+				al.add(arr[i]);
 			}
 			preNum = arr[i];
 
