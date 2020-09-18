@@ -1,5 +1,6 @@
+package bitcamp015;
 
-
+// 
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,15 +9,15 @@ public class VarietyValueUsingIntArray {
 	private static void calc(ArrayList<Integer> al) {
 		int total = 0;
 		double average = 0.0;
-		
-		for (int i = 0; i<al.size(); i++) {
+
+		for (int i = 0; i < al.size(); i++) {
 			total += al.get(i);
 		}
-		
-		average = (double)total / al.size();
+
+		average = (double) total / al.size();
 		al.sort(null);
 
-		System.out.println("The largest value = " + al.get(al.size()-1));
+		System.out.println("The largest value = " + al.get(al.size() - 1));
 		System.out.println("The smallest value = " + al.get(0));
 		System.out.println("The total value = " + total);
 		System.out.println("The average value = " + average);
@@ -31,17 +32,17 @@ public class VarietyValueUsingIntArray {
 		ArrayList<Integer> al = new ArrayList<Integer>();
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("ì…ë ¥í•œ ê°’ë“¤ì˜ largest / smallest / sum / average êµ¬í•˜ê¸°"
-				+ "\n====================================================\n" + "ê°’ë“¤ì„ ì…ë ¥í•´ì£¼ì„¸ìš” ( ì…ë ¥ì™„ë£Œì‹œ ' -1 ' )");
+		System.out.println("ÀÔ·ÂÇÑ °ªµéÀÇ largest / smallest / sum / average ±¸ÇÏ±â"
+				+ "\n====================================================\n" + "°ªµéÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä ( ÀÔ·Â¿Ï·á½Ã ' -1 ' )");
 
-		// ìˆ«ì í•˜ë‚˜ì”© ì…ë ¥ë°›ê³  ArrayListì— ë‹´ê¸°
+		// ¼ıÀÚ ÇÏ³ª¾¿ ÀÔ·Â¹Ş°í ArrayList¿¡ ´ã±â
 		while (true) {
-			System.out.print(cnt + "ë²ˆì§¸ ìˆ«ì ì…ë ¥ = ");
+			System.out.print(cnt + "¹øÂ° ¼ıÀÚ ÀÔ·Â = ");
 			test = sc.nextInt();
 			if (test == -1)
 				break;
 			else if (test < 0 || test > 9999) {
-				System.out.println("0~9999ê¹Œì§€ì˜ ì •ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+				System.out.println("0~9999±îÁöÀÇ Á¤¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
 				cnt--;
 			} else
 				al.add(test);
@@ -49,9 +50,9 @@ public class VarietyValueUsingIntArray {
 
 		}
 		sc.close();
-	
-		System.out.println("ì…ë ¥ ë°›ì€ ìˆ˜ ==>"+al);
-		
+
+		System.out.println("ÀÔ·Â ¹ŞÀº ¼ö ==>" + al);
+
 		calc(al);
 	}
 }
