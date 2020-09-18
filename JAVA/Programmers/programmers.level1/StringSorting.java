@@ -25,12 +25,12 @@ public class StringSorting {
 		String[] strings = { "sun", "bed", "car" };
 		String[] strings2 = { "abce", "abcd", "cdx" };
 
-		for(String s:new StringSorting().solution(strings, 1)) {
-			System.out.print(s+" ");
+		for (String s : new StringSorting().solution(strings, 1)) {
+			System.out.print(s + " ");
 		}
 		System.out.println();
-		for(String s:new StringSorting().solution(strings2, 2)) {
-			System.out.print(s+" ");
+		for (String s : new StringSorting().solution(strings2, 2)) {
+			System.out.print(s + " ");
 		}
 
 	}

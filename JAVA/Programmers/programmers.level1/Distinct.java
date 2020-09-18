@@ -17,9 +17,9 @@ public class Distinct {
 			preNum = arr[i];
 
 		}
-		int [] answer = new int[al.size()];
+		int[] answer = new int[al.size()];
 		for (int i = 0; i < answer.length; i++) {
-			answer[i]=al.get(i).intValue();
+			answer[i] = al.get(i).intValue();
 		}
 
 		return answer;
@@ -31,16 +31,15 @@ public class Distinct {
 		int[] arr2 = { 4, 4, 4, 3, 3 };
 
 		Distinct dt = new Distinct();
-		
-		for(int a:dt.solution(arr)) {
+
+		for (int a : dt.solution(arr)) {
 			System.out.print(a);
 		}
 		System.out.println();
-		for(int a:dt.solution(arr2)) {
+		for (int a : dt.solution(arr2)) {
 			System.out.print(a);
 		}
-		
-		
+
 	}
 
 }
