@@ -1,5 +1,3 @@
-// https://programmers.co.kr/learn/courses/30/lessons/12906 ( 연속 같은 숫자 제거하기 )
-
 package programmers.level1;
 
 import java.util.ArrayList;
