@@ -1,4 +1,4 @@
-package bitca
+package bi
 
 import java.util.ArrayList;
 import java.util.Scanner;
