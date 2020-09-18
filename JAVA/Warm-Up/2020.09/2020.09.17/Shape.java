@@ -69,14 +69,14 @@ class Circle extends Shape {
 	}
 }
 
-class Rectangle extends Shape {
+class Rectangle2 extends Shape {
 
 	/// Field
 	private double width;
 	private double height;
 
 	/// Constructor
-	public Rectangle(String string, int i, int j) {
+	public Rectangle2(String string, int i, int j) {
 		this.setName(string);
 		this.setWidth(i);
 		this.setHeight(j);
