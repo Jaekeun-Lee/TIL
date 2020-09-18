@@ -1,5 +1,3 @@
-package programmers.level1;
-
 public class EvenAndOdd {
 	public String solution(int num) {
         String answer = "";

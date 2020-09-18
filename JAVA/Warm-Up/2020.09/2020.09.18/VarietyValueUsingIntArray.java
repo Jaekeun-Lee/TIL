@@ -1,6 +1,3 @@
-package bitcamp015;
-
-// 
 import java.util.ArrayList;
 import java.util.Scanner;
 

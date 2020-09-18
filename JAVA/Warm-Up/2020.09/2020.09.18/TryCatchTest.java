@@ -1,5 +1,3 @@
-package programmers.level1;
-
 public class TryCatchTest {
 
 	public boolean solution(String s) {
