@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="OpenChallenge/OpenChallenge01/src"/>
+	<classpathentry kind="src" path="OpenChallenge/OpenChallenge02/src"/>
+	<classpathentry kind="src" path="OpenChallenge/OpenChallenge03/src"/>
+	<classpathentry kind="src" path="OpenChallenge/OpenChallenge04/src"/>
+	<classpathentry kind="src" path="Programmers/src"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.01"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.02"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.03"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.04"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.05"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.06"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.07"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.08"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.09"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.10"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.11"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.12"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.13"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.14"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.15"/>
+	<classpathentry kind="src" path="Warm-Up/2020.09/2020.09.17"/>
+	<classpathentry kind="output" path="OpenChallenge/OpenChallenge01/bin"/>
+</classpath>
