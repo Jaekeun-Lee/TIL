@@ -9,7 +9,7 @@ public class GBBGameApp {
 		String a = s.next(); // 철수의 가위, 바위, 보, 문자열을  입력받는다.
 		System.out.print("영희 >> ");
 		String b = s.next(); // 영희의 가위, 바위, 보, 문자열을 입력받는다.
-		
+		  
 		if(a.equals("가위")) { // 철수가 가위인 경우
 			if(b.equals("가위"))
 				System.out.println("비겼습니다.");
