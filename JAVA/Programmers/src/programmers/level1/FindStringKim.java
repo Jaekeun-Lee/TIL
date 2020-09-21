@@ -1,13 +1,12 @@
 package programmers.level1;
 
+import java.util.Arrays;
+
 public class FindStringKim {
 
 	public static int findKim(String[] list) {
 
-		int index = 0;
-		for (int i = 0; i < list.length; i++) {
-			index = list[i].equals("Kim") ? i : -1;
-		}
+		int index = Arrays.asList(list).indexOf("Kim");
 		return index;
 	}
 
