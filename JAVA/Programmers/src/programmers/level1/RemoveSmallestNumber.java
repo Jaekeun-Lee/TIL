@@ -6,25 +6,25 @@ import java.util.Collections;
 public class RemoveSmallestNumber {
 
 	public static int[] removeNum(int[] arr) {
+		int [] answer= new int [arr.length-1];
 		
 		if (arr.length == 1 || arr[0] == 10) {
-			int [] temp= {-1};
-			return temp;
+			answer[0]=-1;
+			return answer;
 		}
 
 		ArrayList <Integer> al = new ArrayList<Integer>();
 		for(int i: arr) al.add(i);
 		
 		Integer minNum = Collections.min(al);
-		
-		
 		al.remove(minNum);
-		System.out.println(al.toString());
+		
+		for (int i = 0; i < answer.length; i++) {
+			answer[i]=al.get(i);
+		}
 		
 		
-		
-		
-		return null;
+		return answer;
 	}
 
 	public static void main(String[] args) {
@@ -33,7 +33,10 @@ public class RemoveSmallestNumber {
 		int[] arr2 = { 10 };
 		int[] arr3 = {};
 
-		removeNum(arr);
+
+		for(int a : removeNum(arr)) {
+			System.out.print(a+" ");
+		}
 	}
 
 }
