@@ -6,13 +6,14 @@ import java.util.Collections;
 public class RemoveSmallestNumber {
 
 	public static int[] removeNum(int[] arr) {
-		int [] answer= new int [arr.length-1];
 		
-		if (arr.length == 1 || arr[0] == 10) {
-			answer[0]=-1;
-			return answer;
+		
+		if (arr.length ==0  || arr[0] == 10) {
+			int [] temp = {-1};
+			return temp;
 		}
 
+		int [] answer= new int [arr.length-1];
 		ArrayList <Integer> al = new ArrayList<Integer>();
 		for(int i: arr) al.add(i);
 		
