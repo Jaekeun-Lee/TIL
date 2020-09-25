@@ -1,7 +1,7 @@
 import java.util.*;
-
+    
 public class PhoneBookApp {
-	// ¸Ş´º ¹øÈ£¸¦ À§ÇÑ »ó¼ö¸¦ Á¤ÀÇÇÑ´Ù.
+	// ë©”ë‰´ ë²ˆí˜¸ë¥¼ ìœ„í•œ ìƒìˆ˜ë¥¼ ì •ì˜í•œë‹¤.
 	final int INSERT = 0;
 	final int DELETE = 1;
 	final int SEARCH = 2;
@@ -15,70 +15,70 @@ public class PhoneBookApp {
 		scanner = new Scanner(System.in);		
 	}
 	
-	 // ÀüÈ­¹øÈ£ °ü¸® ¸Ş¼Òµå
+	 // ì „í™”ë²ˆí˜¸ ê´€ë¦¬ ë©”ì†Œë“œ
 	public void run() {
 		System.out.println("-------------------------------------------------");
-		System.out.println("ÀüÈ­¹øÈ£ °ü¸® ÇÁ·Î±×·¥À» ½ÃÀÛÇÕ´Ï´Ù. ÆÄÀÏ·Î ÀúÀåÇÏÁö ¾Ê½À´Ï´Ù.");
+		System.out.println("ì „í™”ë²ˆí˜¸ ê´€ë¦¬ í”„ë¡œê·¸ë¨ì„ ì‹œì‘í•©ë‹ˆë‹¤. íŒŒì¼ë¡œ ì €ì¥í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 		System.out.println("-------------------------------------------------");
 		while(true) {
-			System.out.print("»ğÀÔ:0. »èÁ¦:1, Ã£±â:2, ÀüÃ¼º¸±â:3, Á¾·á:4>>");
+			System.out.print("ì‚½ì…:0. ì‚­ì œ:1, ì°¾ê¸°:2, ì „ì²´ë³´ê¸°:3, ì¢…ë£Œ:4>>");
 			int menu = readNumber();
 			switch(menu) {
 				case INSERT: insert(); break;
 				case DELETE: delete(); break;
 				case SEARCH: search(); break;
 				case SHOWALL: showAll(); break;	
-				case EXIT: 	System.out.println("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù..."); return;					
-				default: System.out.println("ÀÔ·ÂÀÌ Æ²·È½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä."); continue;
+				case EXIT: 	System.out.println("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤..."); return;					
+				default: System.out.println("ì…ë ¥ì´ í‹€ë ¸ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”."); continue;
 			}
 		}	
 	}
 	
-	// »ğÀÔ ¸Ş´º¸¦ ±¸ÇöÇÏ¸ç ÇÏ³ªÀÇ ÀüÈ­ ¹øÈ£ ·¹ÄÚµå¸¦ ÀúÀåÇÑ´Ù.
+	// ì‚½ì… ë©”ë‰´ë¥¼ êµ¬í˜„í•˜ë©° í•˜ë‚˜ì˜ ì „í™” ë²ˆí˜¸ ë ˆì½”ë“œë¥¼ ì €ì¥í•œë‹¤.
 	private void insert() {
-		System.out.print("ÀÌ¸§>>");
+		System.out.print("ì´ë¦„>>");
 		String name = scanner.next();
 		if(map.get(name)!=null) {
-			System.out.println("ÀÌ¹Ì Á¸ÀçÇÏ´Â »ç¶÷ÀÔ´Ï´Ù.");
+			System.out.println("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ì‚¬ëŒì…ë‹ˆë‹¤.");
 			return;
 		}
 		
-		System.out.print("ÁÖ¼Ò>>");
+		System.out.print("ì£¼ì†Œ>>");
 		String address = scanner.next();
-		System.out.print("ÀüÈ­¹øÈ£>>");
+		System.out.print("ì „í™”ë²ˆí˜¸>>");
 		String telNum = scanner.next();		
 		
-		// ÇØ½¬ Å×ÀÌºí¿¡ »ğÀÔ
+		// í•´ì‰¬ í…Œì´ë¸”ì— ì‚½ì…
 		map.put(name, new Phone(name, address, telNum));
 	}
 	
-	// »èÁ¦ ¸Ş´º¸¦ ±¸ÇöÇÏ¸ç ÇÏ³ªÀÇ ÀüÈ­ ¹øÈ£ ·¹ÄÚµå¸¦ »èÁ¦ÇÑ´Ù.
+	// ì‚­ì œ ë©”ë‰´ë¥¼ êµ¬í˜„í•˜ë©° í•˜ë‚˜ì˜ ì „í™” ë²ˆí˜¸ ë ˆì½”ë“œë¥¼ ì‚­ì œí•œë‹¤.
 	private void delete() {
-		System.out.print("ÀÌ¸§>>");
+		System.out.print("ì´ë¦„>>");
 		String name = scanner.next();
-		Phone p = map.remove(name); // ÇØ½¬ Å×ÀÌºí¿¡¼­ »èÁ¦
+		Phone p = map.remove(name); // í•´ì‰¬ í…Œì´ë¸”ì—ì„œ ì‚­ì œ
 		if(p == null)
-			System.out.println(name +"´Â µî·ÏµÇÁö ¾ÊÀº »ç¶÷ÀÔ´Ï´Ù.");
+			System.out.println(name +"ëŠ” ë“±ë¡ë˜ì§€ ì•Šì€ ì‚¬ëŒì…ë‹ˆë‹¤.");
 		else {
-			System.out.println(name+"Àº »èÁ¦µÇ¾ú½À´Ï´Ù.");
+			System.out.println(name+"ì€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}
 	}
 	
-	// Ã£±â ¸Ş´º¸¦ ±¸ÇöÇÏ¸ç ÇÏ³ªÀÇ ÀüÈ­ ¹øÈ£ ·¹ÄÚµå¸¦ °Ë»öÇÑ´Ù.
+	// ì°¾ê¸° ë©”ë‰´ë¥¼ êµ¬í˜„í•˜ë©° í•˜ë‚˜ì˜ ì „í™” ë²ˆí˜¸ ë ˆì½”ë“œë¥¼ ê²€ìƒ‰í•œë‹¤.
 	private void search() {
-		System.out.print("ÀÌ¸§>>");
+		System.out.print("ì´ë¦„>>");
 		String name = scanner.next();
-		Phone p = map.get(name); // ÇØ½¬Å×ÀÌºí¿¡¼­ °Ë»ö
+		Phone p = map.get(name); // í•´ì‰¬í…Œì´ë¸”ì—ì„œ ê²€ìƒ‰
 		if(p == null)
-			System.out.println(name +"´Â µî·ÏµÇÁö ¾ÊÀº »ç¶÷ÀÔ´Ï´Ù.");
+			System.out.println(name +"ëŠ” ë“±ë¡ë˜ì§€ ì•Šì€ ì‚¬ëŒì…ë‹ˆë‹¤.");
 		else
 			System.out.println(p.toString());
 	}
 	
-	// ÀüÃ¼º¸±â ¸Ş´º¸¦ ±¸ÇöÇÑ´Ù.
+	// ì „ì²´ë³´ê¸° ë©”ë‰´ë¥¼ êµ¬í˜„í•œë‹¤.
 	private void showAll() {
-		Set<String> keys = map.keySet(); // key ¹®ÀÚ¿­À» °¡Áø ÁıÇÕ Set ÄÃ·º¼Ç ¸®ÅÏ
-		Iterator<String> it = keys.iterator(); // key ¹®ÀÚ¿­À» ¼ø¼­´ë·Î Á¢±ÙÇÒ ¼ö ÀÖ´Â Iterator ¸®ÅÏ
+		Set<String> keys = map.keySet(); // key ë¬¸ìì—´ì„ ê°€ì§„ ì§‘í•© Set ì»¬ë ‰ì…˜ ë¦¬í„´
+		Iterator<String> it = keys.iterator(); // key ë¬¸ìì—´ì„ ìˆœì„œëŒ€ë¡œ ì ‘ê·¼í•  ìˆ˜ ìˆëŠ” Iterator ë¦¬í„´
 		while(it.hasNext()) {
 			String name = it.next();
 			Phone p = map.get(name);
@@ -103,11 +103,11 @@ public class PhoneBookApp {
 	}
 }
 
-// ÇÏ³ªÀÇ ÀüÈ­ ¹øÈ£ Á¤º¸¸¦ °¡Áö´Â Å¬·¡½º
+// í•˜ë‚˜ì˜ ì „í™” ë²ˆí˜¸ ì •ë³´ë¥¼ ê°€ì§€ëŠ” í´ë˜ìŠ¤
 class Phone {
-	private String name; // ÀÌ¸§
-	private String address; // ÁÖ¼Ò
-	private String telNum; // ÀüÈ­ ¹øÈ£
+	private String name; // ì´ë¦„
+	private String address; // ì£¼ì†Œ
+	private String telNum; // ì „í™” ë²ˆí˜¸
 	
 	public Phone(String name, String address, String telNum) {
 		this.name = name;
