@@ -1,5 +1,5 @@
 import java.util.*;
-    
+
 public class PhoneBookApp {
 	// 메뉴 번호를 위한 상수를 정의한다.
 	final int INSERT = 0;
