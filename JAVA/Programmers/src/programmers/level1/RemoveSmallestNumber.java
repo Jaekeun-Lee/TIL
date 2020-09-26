@@ -31,8 +31,6 @@ public class RemoveSmallestNumber {
 	public static void main(String[] args) {
 
 		int[] arr = { 4, 3, 2, 1 };
-		int[] arr2 = { 10 };
-		int[] arr3 = {};
 
 
 		for(int a : removeNum(arr)) {
