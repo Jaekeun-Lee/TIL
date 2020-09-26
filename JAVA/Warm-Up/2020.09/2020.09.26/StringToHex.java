@@ -1,3 +1,5 @@
+ 
+import java.util.Scanner;
 
 public class StringToHex {
 
@@ -18,8 +20,17 @@ public class StringToHex {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String str = "홍 길동 abc A비C 0319 9.2";
-		System.out.println(StringToHex.toEncoding(str));
+		//String str = "홍 길동 abc A비C 0319 9.2";
+		Scanner sc = new Scanner(System.in);
+		
+		while(true) {
+			System.out.print("한글 변환 입력 >>> ");
+			String input = sc.nextLine();
+			
+			if(input.equals("-1")) break;
+			else System.out.println(StringToHex.toEncoding(input));
+			
+		}
 
 	}
 
