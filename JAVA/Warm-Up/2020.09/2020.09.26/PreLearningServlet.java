@@ -1,5 +1,4 @@
-
-
+ 
 public class PreLearningServlet {
 
 	private static String getParameter(String url, String paramName) {
@@ -12,7 +11,7 @@ public class PreLearningServlet {
 			resultStr = url.substring(start, end);
 		} catch (StringIndexOutOfBoundsException e) {
 			resultStr = url.substring(url.lastIndexOf("&") + paramName.length() + 2, url.length());
-		}													
+		}
 
 		return resultStr;
 	}
