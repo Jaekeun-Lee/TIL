@@ -23,16 +23,22 @@ public class ClawCraneGame {
 			col = moves[i] - 1;
 
 			for (int row = 0; row < board.length; row++) {
-				if (board[col][row] != 0) {
-					pick = board[col][row];
-					board[col][row] = 0;
+				if (board[row][col] != 0) {
+					pick = board[row][col];
+					
+					
+					if(basket.isEmpty()) basket.push(pick);
+					else {
+						if(basket.peek()==pick) {
+							basket.pop();
+							answer += 2;
+						}
+						else basket.push(pick);
+					}
+					board[row][col] = 0;
+					break;
 				}
 				
-				if(basket.isEmpty()) basket.push(pick);
-				else if(basket.peek()==pick) {
-					basket.pop();
-					answer += 2;
-				}
 			}
 
 		}
