@@ -20,18 +20,18 @@ public class StringToHex {
 	}
 
 	public static void main(String[] args) throws Exception {
-		//String str = "ȫ �浿 abc A��C 0319 9.2";
+		//String str = "È« ±æµ¿ abc AºñC 0319 9.2";
 		Scanner sc = new Scanner(System.in);
 		
 		while(true) {
-			System.out.print("�ѱ� ��ȯ �Է� >>> ");
+			System.out.print("ÇÑ±Û º¯È¯ ÀÔ·Â >>> ");
 			String input = sc.nextLine();
 			
 			if(input.equals("-1")) break;
 			else System.out.println(StringToHex.toEncoding(input));
 			
 		}
-
+		sc.close();
 	}
 
 }
