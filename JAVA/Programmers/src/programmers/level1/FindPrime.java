@@ -28,7 +28,7 @@ public class FindPrime {
 
 	public static void main(String[] args) {
 		// 입출력 예시
-		int n = 10;
+		int n = 50;
 
 		System.out.println(FindPrime.solution(n));
 	}
