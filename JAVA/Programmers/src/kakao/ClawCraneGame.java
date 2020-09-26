@@ -25,20 +25,21 @@ public class ClawCraneGame {
 			for (int row = 0; row < board.length; row++) {
 				if (board[row][col] != 0) {
 					pick = board[row][col];
-					
-					
-					if(basket.isEmpty()) basket.push(pick);
+					board[row][col] = 0;
+
+					if (basket.isEmpty())
+						basket.push(pick);
 					else {
-						if(basket.peek()==pick) {
+						if (basket.peek() == pick) {
 							basket.pop();
 							answer += 2;
-						}
-						else basket.push(pick);
+						} else
+							basket.push(pick);
 					}
-					board[row][col] = 0;
+
 					break;
 				}
-				
+
 			}
 
 		}
@@ -57,7 +58,7 @@ public class ClawCraneGame {
 				{ 3, 5, 1, 3, 1 } };
 
 		int[] moves = { 1, 5, 3, 5, 1, 2, 1, 4 };
-		
+
 		System.out.println(ClawCraneGame.solution(board, moves));
 
 	}
