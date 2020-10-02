@@ -15,7 +15,7 @@ public class PracticeTest {
 		for (int reset = 0; reset < 3; reset++) {
 			humanAns.add(0);
 		}
-		
+
 		for (int i = 0; i < answers.length; i++) {
 			if (answers[i] == human1Pattern[i % human1Pattern.length])
 				humanAns.set(0, humanAns.get(0) + 1);
@@ -27,20 +27,21 @@ public class PracticeTest {
 
 		int max = Math.max(humanAns.get(0), Math.max(humanAns.get(1), humanAns.get(2)));
 
-		
-		
 		List<Integer> answer = new ArrayList<Integer>();
 
-		for(int i=0;i<humanAns.size();i++) {
-			if(humanAns.get(i)==max) {
-				answer.add(i+1);
+		for (int i = 0; i < humanAns.size(); i++) {
+			if (humanAns.get(i) == max) {
+				answer.add(i + 1);
 			}
 		}
-		
-		
 
-		
-		return answer.stream().mapToInt(i->i.intValue()).toArray();
+		int[] result = new int[answer.size()];
+		int index = 0;
+		for (int a : answer) {
+			result[index++] = a;
+		}
+
+		return result;
 	}
 
 	public static void main(String[] args) {
