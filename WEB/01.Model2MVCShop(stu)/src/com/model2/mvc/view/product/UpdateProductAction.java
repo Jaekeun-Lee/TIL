@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.model2.mvc.framework.Action;
 import com.model2.mvc.service.product.ProductService;
 import com.model2.mvc.service.product.impl.ProductServiceImpl;
-import com.model2.mvc.service.product.vo.Product;
+import com.model2.mvc.service.product.vo.ProductVO;
 
 public class UpdateProductAction extends Action {
 
@@ -14,7 +14,7 @@ public class UpdateProductAction extends Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String prodNo = request.getParameter("prodNo");
 		
-		Product productVO = new Product();
+		ProductVO productVO = new ProductVO();
 		productVO.setProdNo(Integer.parseInt(prodNo));
 		productVO.setProdName(request.getParameter("prodName"));
 		productVO.setProdDetail(request.getParameter("prodDetail"));

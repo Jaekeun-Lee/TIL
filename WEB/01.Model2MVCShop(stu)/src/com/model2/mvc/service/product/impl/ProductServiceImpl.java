@@ -5,7 +5,7 @@ import java.util.HashMap;
 import com.model2.mvc.common.SearchVO;
 import com.model2.mvc.service.product.ProductService;
 import com.model2.mvc.service.product.dao.ProductDAO;
-import com.model2.mvc.service.product.vo.Product;
+import com.model2.mvc.service.product.vo.ProductVO;
 
 public class ProductServiceImpl implements ProductService {
 
@@ -16,12 +16,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void addProduct(Product productVO) throws Exception {
+	public void addProduct(ProductVO productVO) throws Exception {
 		productDAO.insertProduct(productVO);
 	}
 
 	@Override
-	public Product getProduct(int prodNo) throws Exception {
+	public ProductVO getProduct(int prodNo) throws Exception {
 		return productDAO.findProduct(prodNo);
 	}
 
@@ -31,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void updateProduct(Product productVO) throws Exception {
+	public void updateProduct(ProductVO productVO) throws Exception {
 		productDAO.updateProduct(productVO);
 	}
 

@@ -21,7 +21,7 @@
 	if(total > 0) {
 		totalPage= total / searchVO.getPageUnit() ;
 		if(total%searchVO.getPageUnit() >0)
-			totalPage += 1;
+	totalPage += 1;
 	}
 %>
 
@@ -159,13 +159,38 @@ function fncGetUserList(){
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
 	<tr>
 		<td align="center">
-		<%
-			for(int i=1;i<=totalPage;i++){
-		%>
-			<a href="/listUser.do?page=<%=i%>"><%=i %></a>
-		<%
-			}
-		%>	
+		    <% 
+		    
+			int startPage = currentPage / 5 * 5+1;
+		    if( currentPage % 5 == 0) startPage -= 5;
+		    int endPage = startPage + 4;
+		    int preGroup = startPage - 5;
+		    int nextGroup = startPage + 5;
+		    if(endPage>totalPage) endPage = totalPage;
+		    %>
+		    <% if(startPage > 1) { %>
+		    	<% if(searchVO.getSearchCondition()==null && searchVO.getSearchKeyword()==null) {%>
+		    			<a href="/listUser.do?page=<%=preGroup%>">이전</a>
+		    		<% } else { %>
+   						<a href="/listUser.do?searchKeyword=<%=request.getParameter("searchKeyword")%>&page=<%=preGroup%>&searchCondition=<%=request.getParameter("searchCondition")%>">이전</a>
+  					<% } %>
+   			<% } %>
+   			
+   			<% for(int i=startPage;i<=endPage;i++){ %>
+				<% if(searchVO.getSearchCondition()==null && searchVO.getSearchKeyword()==null) {%>
+	           		<a href="/listUser.do?page=<%=i%>"><%=i %></a>
+	           	<% } else { %>
+		           		<a href="/listUser.do?searchKeyword=<%=request.getParameter("searchKeyword")%>&page=<%=i%>&searchCondition=<%=request.getParameter("searchCondition")%>"><%=i %></a>
+        		<% } %>
+           	<% } %>
+           	
+           	<% if(!(endPage==totalPage)) { %>
+           		<% if(searchVO.getSearchCondition()==null && searchVO.getSearchKeyword()==null) {%>
+		    			<a href="/listUser.do?page=<%=nextGroup%>">다음</a>
+	    		<% } else { %>
+        				<a href="/listUser.do?searchKeyword=<%=request.getParameter("searchKeyword")%>&page=<%=nextGroup%>&searchCondition=<%=request.getParameter("searchCondition")%>">다음</a>
+	         	<% } %>
+			<% } %>
     	</td>
 	</tr>
 </table>

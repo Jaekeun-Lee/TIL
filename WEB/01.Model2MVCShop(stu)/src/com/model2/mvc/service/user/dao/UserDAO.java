@@ -39,7 +39,7 @@ public class UserDAO {
 		
 		Connection con = DBUtil.getConnection();
 
-		String sql = "select * from USERS where USER_ID=?";
+		String sql = "select * from USERS where USER_ID LIKE '%'||?||'%'";
 		
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, userId);
@@ -72,11 +72,11 @@ public class UserDAO {
 		String sql = "select * from USERS ";
 		if (searchVO.getSearchCondition() != null) {
 			if (searchVO.getSearchCondition().equals("0")) {
-				sql += " where USER_ID='" + searchVO.getSearchKeyword()
-						+ "'";
+				sql += " where USER_ID LIKE '%'||'" + searchVO.getSearchKeyword()
+						+ "'||'%'";
 			} else if (searchVO.getSearchCondition().equals("1")) {
-				sql += " where USER_NAME='" + searchVO.getSearchKeyword()
-						+ "'";
+				sql += " where USER_NAME LIKE '%'||'" + searchVO.getSearchKeyword()
+						+ "'||'%'";
 			}
 		}
 		sql += " order by USER_ID";

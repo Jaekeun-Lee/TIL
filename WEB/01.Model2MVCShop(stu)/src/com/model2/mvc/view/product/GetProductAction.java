@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.model2.mvc.framework.Action;
 import com.model2.mvc.service.product.ProductService;
 import com.model2.mvc.service.product.impl.ProductServiceImpl;
-import com.model2.mvc.service.product.vo.Product;
+import com.model2.mvc.service.product.vo.ProductVO;
 
 public class GetProductAction extends Action {
 
@@ -19,7 +19,7 @@ public class GetProductAction extends Action {
 		System.out.println("상품번호 : " + prodNo);
 
 		ProductService service = new ProductServiceImpl();
-		Product vo = service.getProduct(prodNo);
+		ProductVO vo = service.getProduct(prodNo);
 		
 		String history = String.valueOf(vo.getProdNo())+",";
 

@@ -9,14 +9,14 @@ import java.util.List;
 
 import com.model2.mvc.common.SearchVO;
 import com.model2.mvc.common.util.DBUtil;
-import com.model2.mvc.service.product.vo.Product;
+import com.model2.mvc.service.product.vo.ProductVO;
 
 public class ProductDAO {
 
 	public ProductDAO() {
 	}
 
-	public void insertProduct(Product productVO) throws Exception {
+	public void insertProduct(ProductVO productVO) throws Exception {
 		
 		Connection con = DBUtil.getConnection();
 		
@@ -36,7 +36,7 @@ public class ProductDAO {
 		con.close();
 	}
 
-	public Product findProduct(int prodNo) throws Exception {
+	public ProductVO findProduct(int prodNo) throws Exception {
 		
 		Connection con = DBUtil.getConnection();
 		
@@ -47,10 +47,10 @@ public class ProductDAO {
 
 		ResultSet rs = stmt.executeQuery();
 		
-		Product productVO = null;
+		ProductVO productVO = null;
 		while(rs.next()) {
 			
-			productVO = new Product();
+			productVO = new ProductVO();
 			
 			productVO.setProdNo(rs.getInt("PROD_NO"));
 			productVO.setProdName(rs.getString("PROD_NAME"));
@@ -140,10 +140,10 @@ public class ProductDAO {
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("count", new Integer(total));
 		
-		List<Product> list = new ArrayList<Product>();
+		List<ProductVO> list = new ArrayList<ProductVO>();
 		if (total > 0) {
 			for (int i = 0; i < searchVO.getPageUnit(); i++) {
-				Product vo = new Product();
+				ProductVO vo = new ProductVO();
 				vo.setProdNo(rs.getInt("prod_no"));
 				vo.setProdName(rs.getString("prod_name"));
 				vo.setPrice(rs.getInt("price"));
@@ -167,7 +167,7 @@ public class ProductDAO {
 		
 	}
 	
-	public void updateProduct(Product productVO) throws Exception {
+	public void updateProduct(ProductVO productVO) throws Exception {
 		
 		Connection con = DBUtil.getConnection();
 

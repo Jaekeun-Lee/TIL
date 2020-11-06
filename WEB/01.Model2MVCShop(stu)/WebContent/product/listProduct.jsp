@@ -11,10 +11,10 @@
 	SearchVO searchVO = (SearchVO) request.getAttribute("searchVO");
    
    int total = 0;
-   List<Product> list = null;
+   List<ProductVO> list = null;
    if (map != null) {
       total = ((Integer) map.get("count")).intValue();
-      list = (List<Product>) map.get("list");
+      list = (List<ProductVO>) map.get("list");
    }
    
    int currentPage = searchVO.getPage();
@@ -188,8 +188,8 @@
 
             <%
             	int no=list.size();
-                           for(int i=0; i<list.size(); i++) {
-                              Product vo = (Product)list.get(i);
+                                       for(int i=0; i<list.size(); i++) {
+                                          ProductVO vo = (ProductVO)list.get(i);
             %>
             <tr class="ct_list_pop">
                <td align="center"><%=no--%></td>
@@ -212,12 +212,19 @@
 	               <% if(vo.getProTranCode().equals("0")) { %>
 	               		<td align="left">판매중</td>
 	               <% } else if(vo.getProTranCode().equals("1")) { %>
-	               		<td align="left">재고없음</td>
+	               		<td align="left">
+	               		결제완료
+	               		<a href="updateTranCodeByProd.do?prodNo=<%= vo.getProdNo() %>&tranCode=2">배송하기</a>
+	               		</td>
+	               <% } else if(vo.getProTranCode().equals("2")) { %>
+	               		<td align="left">배송중</td>
+	               <% } else if(vo.getProTranCode().equals("3")) { %>
+	               		<td align="left">배송완료</td>
 	               <% } %>
                <% } else { %>
                    <% if(vo.getProTranCode().equals("0")) { %>
 	               		<td align="left">판매중</td>
-	               <% } else if(vo.getProTranCode().equals("1")) { %>
+	               <% } else { %>
 	               		<td align="left">재고없음</td>
 	               <% } %>
                <% } %>
