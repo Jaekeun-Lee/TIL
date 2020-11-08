@@ -4,10 +4,11 @@ package com.model2.mvc.common;
 public class Search {
 	
 	///Field
-	private int curruntPage;
+	private int currentPage;
 	private String searchCondition;
 	private String searchKeyword;
 	private int pageSize;
+	private String orderCondition;
 	
 	///Constructor
 	public Search() {
@@ -22,10 +23,10 @@ public class Search {
 	}
 	
 	public int getCurrentPage() {
-		return curruntPage;
+		return currentPage;
 	}
 	public void setCurrentPage(int curruntPage) {
-		this.curruntPage = curruntPage;
+		this.currentPage = curruntPage;
 	}
 
 	public String getSearchCondition() {
@@ -34,6 +35,7 @@ public class Search {
 	public void setSearchCondition(String searchCondition) {
 		this.searchCondition = searchCondition;
 	}
+	
 	public String getSearchKeyword() {
 		return searchKeyword;
 	}
@@ -41,10 +43,31 @@ public class Search {
 		this.searchKeyword = searchKeyword;
 	}
 
+	public String getOrderCondition() {
+		return orderCondition;
+	}
+
+	public void setOrderCondition(String orderCondition) {
+		this.orderCondition = orderCondition;
+	}
+
 	@Override
 	public String toString() {
-		return "Search [curruntPage=" + curruntPage + ", searchCondition="
-				+ searchCondition + ", searchKeyword=" + searchKeyword
-				+ ", pageSize=" + pageSize + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Search [currentPage=");
+		builder.append(currentPage);
+		builder.append(", searchCondition=");
+		builder.append(searchCondition);
+		builder.append(", searchKeyword=");
+		builder.append(searchKeyword);
+		builder.append(", pageSize=");
+		builder.append(pageSize);
+		builder.append(", orderCondition=");
+		builder.append(orderCondition);
+		builder.append("]");
+		return builder.toString();
 	}
+	
+	
+
 }

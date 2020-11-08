@@ -194,16 +194,13 @@ public class PurchaseDAO {
 				total = max;
 			}
 			rs.first();
-			System.out.println("for문 회전 횟수:" + total);
 			for (int i = 0; i < total; i++) {
-				System.out.println((i + 1) + "번째");
 				Purchase vo = new Purchase();
 				vo.setTranNo(rs.getInt("tran_no"));
 				vo.setBuyer(new UserDao().findUser(rs.getString("user_id")));
 				vo.setTranCode(rs.getString("tran_code").trim());
-				System.out.println(vo);
+				System.out.println((i + 1) + "번째" + vo);
 				list.add(vo);
-				System.out.println("리스트 추가 " + (i + 1) + "개");
 				if (!rs.next()) {
 					break;
 				}

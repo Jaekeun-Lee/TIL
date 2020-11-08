@@ -48,10 +48,12 @@ public class ListProductAction extends Action {
 		//==> null 을 ""(nullString)으로 변경
 		String searchCondition = CommonUtil.null2str(request.getParameter("searchCondition"));
 		String searchKeyword = CommonUtil.null2str(request.getParameter("searchKeyword"));
+		String orderCondition = CommonUtil.null2str(request.getParameter("orderCondition"));
 		
 		search.setCurrentPage(currentPage);
 		search.setSearchCondition(searchCondition);
 		search.setSearchKeyword(searchKeyword);
+		search.setOrderCondition(orderCondition);
 		search.setPageSize(Integer.parseInt(getServletContext().getInitParameter("pageSize")));
 		int pageUnit = Integer.parseInt(getServletContext().getInitParameter("pageUnit"));
 
@@ -66,7 +68,7 @@ public class ListProductAction extends Action {
 		*/
 		
 		Page resultPage	= new Page( currentPage, ((Integer)map.get("totalCount")).intValue(), pageUnit, search.getPageSize());
-		System.out.println("ListUserAction ::"+resultPage);
+		System.out.println("ListProductAction ::"+resultPage);
 		
 		request.setAttribute("list", map.get("list"));
 		request.setAttribute("resultPage", resultPage);

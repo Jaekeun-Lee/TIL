@@ -16,9 +16,10 @@ public class AddPurchaseAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
+		
 		Product product = new ProductDAO().findProduct(Integer.parseInt(request.getParameter("prodNo")));
 		Purchase purchase = new Purchase();
 
@@ -35,6 +36,7 @@ public class AddPurchaseAction extends Action {
 		service.addPurchase(purchase);
 		request.setAttribute("purchase", purchase);
 
+		
 		return "forward:/purchase/addPurchase.jsp";
 
 	}

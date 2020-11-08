@@ -9,24 +9,13 @@
 <title>상품 목록조회</title>
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
-<!--  -->
+ 
 <script type="text/javascript">
-	function fncSearchConditionCheck() {
-		var searchCondition = document.detailForm.searchCondition.value;
-		var searchKeyword = document.detailForm.searchKeyword.value;
 
-		if (searchKeyword == null) {
-			alert("검색어를 입력해주세요");
-		} else {
-			if (searchCondition == 0 && isNaN(Number(searchKeyword)) == true) {
-				alert("검색하실 상품의 상품 번호로 입력해주세요.");
-			} else if (searchCondition == 2 && isNaN(Number(searchKeyword)) == true) {
-				alert("검색하실 상품의 가격을 입력해주세요.");
-			} else {
-				document.getElementById("currentPage").value = 1;
-				document.detailForm.submit();
-			}
-		}
+	function fncSearchConditionCheck() {
+		document.getElementById("currentPage").value = 1;
+		document.getElementById("orderCondition").value = null;
+		document.detailForm.submit();
 
 	}
 	
@@ -34,7 +23,15 @@
 		document.getElementById("currentPage").value = currentPage;
 		document.detailForm.submit();
 	}
+	
+	function fncOrderList(orderCondition) {
+		document.getElementById("currentPage").value = 1;
+		document.getElementById("orderCondition").value = orderCondition;
+		document.detailForm.submit();
+	}
+
 </script>
+
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
@@ -68,13 +65,17 @@
 				style="margin-top: 10px;">
 				<tr>
 					<td align="right">
-						<select name="searchCondition"
-							class="ct_input_g" style="width: 80px">
-								<option value="0" ${ search.searchCondition eq '0' ? 'selected' : '' }>상품번호</option>
-								<option value="1" ${ search.searchCondition eq '1' ? 'selected' : '' }>상품명</option>
-								<option value="2" ${ search.searchCondition eq '2' ? 'selected' : '' }>상품가격</option>
-						</select> 
-					<input type="text" name="searchKeyword" value="${ search.searchKeyword }" class="ct_input_g" style="width: 200px; height: 19px"  /></td>
+						<c:if test="${ menuType eq 'manage'}" >
+							<select name="searchCondition" id="searchCondition" class="ct_input_g" style="width: 80px">
+									<option value="0" ${ search.searchCondition eq '0' ? 'selected' : '' }>상품번호</option>
+									<option value="1" ${ search.searchCondition eq '1' ? 'selected' : '' }>상품명</option>
+							</select> 
+						</c:if>
+						<c:if test="${ menuType eq 'search'}" >
+							<input type="hidden" id="searchCondition" name="searchCondition" value="1" />
+						</c:if>
+						<input type="text" name="searchKeyword" value="${ search.searchKeyword }" class="ct_input_g" style="width: 200px; height: 19px"  />
+					</td>
 					
 					<td align="right" width="70">
 						<table border="0" cellspacing="0" cellpadding="0">
@@ -92,10 +93,19 @@
 			</table>
 
 
-			<table width="100%" border="0" cellspacing="0" cellpadding="0"
-				style="margin-top: 10px;">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 30px 0;">
 				<tr>
-					<td colspan="11">전체 ${ resultPage.totalCount } 건수, 현재  ${ resultPage.currentPage } 페이지
+					<td colspan="7">전체 ${ resultPage.totalCount } 건수, 현재  ${ resultPage.currentPage } 페이지
+					</td>
+					
+					<td colspan="100%" style="text-align: right;">
+						<input type="hidden" id="orderCondition" name="orderCondition" value="${ search.orderCondition }" />
+						정렬 기준 : 
+						<a href="javascript:fncOrderList('${menuType eq 'manage'? '1' : '0'}');" >${menuType eq 'manage'? '결제완료 된' : '구매가능한'} 상품만 보기</a>
+						|
+						<a href="javascript:fncOrderList('2');">가격 높은 순</a>
+						|
+						<a href="javascript:fncOrderList('3');">가격 낮은 순</a>
 					</td>
 				</tr>
 				<tr>
@@ -120,7 +130,14 @@
 						<td align="center">${ i }</td>
 						<td></td>
 						<td align="left">
-							<a href="/${ menuType eq 'manage' ? 'updateProductView' : 'getProduct'}.do?prodNo=${ product.prodNo }">${ product.prodName }</a>
+							<c:choose>
+								<c:when test="${ product.proTranCode eq '0' }">
+									<a href="/${ menuType eq 'manage' ? 'updateProductView' : 'getProduct'}.do?prodNo=${ product.prodNo }">${ product.prodName }</a>
+								</c:when>
+								<c:otherwise>
+									${ product.prodName }
+								</c:otherwise>
+							</c:choose>
 						</td>						
 						<td></td>
 						<td align="left">${product.price }</td>

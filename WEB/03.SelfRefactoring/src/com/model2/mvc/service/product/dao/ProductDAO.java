@@ -35,6 +35,7 @@ public class ProductDAO {
 		
 		//System.out.println("상품 추가 완료");
 		con.close();
+		stmt.close();
 	}
 
 	public Product findProduct(int prodNo) throws Exception {
@@ -64,6 +65,7 @@ public class ProductDAO {
 		}
 		
 		con.close();
+		stmt.close();
 		
 		return productVO;
 	}
@@ -71,43 +73,50 @@ public class ProductDAO {
 	public Map<String, Object> getProductList(Search search) throws Exception {
 		
 		Connection con = DBUtil.getConnection();
-		StringBuilder tempSQL = new StringBuilder();
-		tempSQL.append("SELECT pd.prod_no, pd.prod_name, pd.price, pd.reg_date, NVL(ts.tran_status_code,0) tran_code, count ");
-		tempSQL.append("FROM product pd, transaction ts, ");
-		tempSQL.append("(SELECT ROW_NUMBER() OVER(ORDER BY ");
-		tempSQL.append("prod_no"); //나중에 정렬 기준 생기면 조건문 걸기
-		tempSQL.append(") rn,prod_no, COUNT(*)OVER() count FROM product ");
 		
-		System.out.println("search.getSearchCondition() = "+search.getSearchCondition());
-		System.out.println("search.getSearchCondition() = "+search.getSearchKeyword());
-		if (search.getSearchCondition() != null && search.getSearchKeyword()!="") {
+		String sql = null;
+		if(search.getOrderCondition().equals("0")) {
+			sql = orderByList("0");
+		}else if(search.getOrderCondition().equals("1")) {
+			sql = orderByList("1");
+		}else {
+			StringBuilder tempSQL = new StringBuilder();
+			tempSQL.append("SELECT pd.prod_no, pd.prod_name, pd.price, pd.reg_date, NVL(ts.tran_status_code,0) tran_code, count ");
+			tempSQL.append("FROM product pd, transaction ts, ");
+			tempSQL.append("(SELECT ROW_NUMBER() OVER(ORDER BY ");
+			if(search.getOrderCondition().equals("1")) {tempSQL.append("price DESC");}
+			else if(search.getOrderCondition().equals("2")) {tempSQL.append("price ");}
+			else {tempSQL.append("prod_no");}
+			tempSQL.append(") rn,prod_no, COUNT(*)OVER() count FROM product ");
 			
-			switch(search.getSearchCondition()) {
-				case "0" :
-					tempSQL.append("WHERE prod_no='");
-					tempSQL.append(search.getSearchKeyword());
-					tempSQL.append("'");
-					
-					break;
-					
-				case "1" :
-					tempSQL.append("WHERE prod_name LIKE '%");
-					tempSQL.append(search.getSearchKeyword());
-					tempSQL.append("%'");
-					
-					break;
-					
-				case "2" :
-					tempSQL.append("WHERE price=");
-					tempSQL.append(search.getSearchKeyword());
-					
-					break;
-					
+			System.out.println("search.getSearchCondition() = "+search.getSearchCondition());
+			System.out.println("search.getSearchCondition() = "+search.getSearchKeyword());
+			if (search.getSearchCondition() != null && search.getSearchKeyword()!="") {
+				
+				switch(search.getSearchCondition()) {
+					case "0" :
+						tempSQL.append("WHERE prod_no='");
+						tempSQL.append(search.getSearchKeyword());
+						tempSQL.append("'");
+						
+						break;
+						
+					case "1" :
+						tempSQL.append("WHERE prod_name LIKE '%");
+						tempSQL.append(search.getSearchKeyword());
+						tempSQL.append("%'");
+						
+						break;
+				}
+						
 			}
+			tempSQL.append(" ) ptj WHERE ptj.prod_no = pd.prod_no AND pd.prod_no=ts.prod_no(+) AND rn BETWEEN ? AND ? ");
+			
+			tempSQL.append(" ORDER BY ptj.rn");
+			
+			sql = tempSQL.toString();
+			
 		}
-		tempSQL.append(" ) ptj WHERE ptj.prod_no = pd.prod_no AND pd.prod_no=ts.prod_no(+) AND rn BETWEEN ? AND ? ");
-		tempSQL.append(" ORDER BY 1");
-		
 		// 1. ResultSet.TYPE_SCROLL_INSENSITIVE
 		// rs.last()를 사용하면 이전행들은 사용할 수 없게 된다.
 		// ResultSet.TYPE_SCROLL_INSENSITIVE 사용 시 지나간 행들 다시 사용가능
@@ -116,9 +125,8 @@ public class ProductDAO {
 		// 2. ResultSet.CONCUR_UPDATABLE
 		// 데이터 변경이 가능하도록 한다.
 		
-		System.out.println(tempSQL.toString());
-
-		PreparedStatement stmt = con.prepareStatement(	tempSQL.toString(),
+		System.out.println("날린 쿼리문 : " + sql);
+		PreparedStatement stmt = con.prepareStatement(	sql,
 														ResultSet.TYPE_SCROLL_INSENSITIVE,
 														ResultSet.CONCUR_UPDATABLE);
 		
@@ -169,7 +177,8 @@ public class ProductDAO {
 		System.out.println("map().size() : "+ map.size());
 
 		con.close();
-			
+		stmt.close();
+		
 		return map;
 		
 	}
@@ -191,6 +200,28 @@ public class ProductDAO {
 		
 		System.out.println("DB에 업데이트 : "+productVO);
 		con.close();
+		stmt.close();
+	}
+	
+	private String orderByList(String menu) {
+		StringBuilder tempSQL = new StringBuilder();
 		
+		tempSQL.append("SELECT * FROM(");
+		tempSQL.append("SELECT ptj.rn, pd.prod_no, pd.prod_name, pd.price, pd.reg_date, ptj.tran_code, COUNT(*)OVER() count ");
+		tempSQL.append("FROM product pd, ");
+		tempSQL.append("( SELECT ROW_NUMBER() OVER(ORDER BY ts.tran_status_code NULLS ");
+		if(menu.equals("0")) { tempSQL.append("FIRST"); } 
+		else if(menu.equals("1")) {tempSQL.append("LAST");}
+		tempSQL.append(",pd.prod_no) rn, pd.prod_no, NVL(ts.tran_status_code,0) tran_code ");
+		tempSQL.append("FROM product pd, transaction ts ");
+		tempSQL.append("WHERE pd.prod_no=ts.prod_no(+))ptj ");
+		tempSQL.append("WHERE ptj.tran_code = ");
+		if(menu.equals("0")) { tempSQL.append("0"); } 
+		else if(menu.equals("1")) {tempSQL.append("1");}
+		tempSQL.append(" AND ptj.prod_no = pd.prod_no) WHERE rn BETWEEN ? AND ?");
+		
+		
+		String sql = tempSQL.toString();
+		return sql;
 	}
 }

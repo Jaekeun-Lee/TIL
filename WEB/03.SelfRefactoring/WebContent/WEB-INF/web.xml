@@ -15,7 +15,7 @@
 	<!--  게시판 Page 에 보여주는 게시물 수 -->
 	<context-param>
 		<param-name>pageSize</param-name>
-		<param-value>3</param-value>
+		<param-value>5</param-value>
 	</context-param>
 	
 	<!-- Filter 를 이용 한글처리 -->
