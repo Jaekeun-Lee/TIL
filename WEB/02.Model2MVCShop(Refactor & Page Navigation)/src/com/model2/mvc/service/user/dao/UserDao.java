@@ -48,9 +48,7 @@ public class UserDao {
 		
 		Connection con = DBUtil.getConnection();
 			
-		String sql = 	"SELECT "+
-								"user_id ,  user_name ,  password , role , cell_phone ,  addr ,  email , reg_date " + 
-								"FROM users WHERE user_id = ?";
+		String sql = "SELECT * FROM users WHERE user_id LIKE '%'||?||'%'";
 		
 		PreparedStatement pStmt = con.prepareStatement(sql);
 		pStmt.setString(1, userId);
@@ -89,14 +87,12 @@ public class UserDao {
 		
 		if (search.getSearchCondition() != null) {
 			if ( search.getSearchCondition().equals("0") &&  !search.getSearchKeyword().equals("") ) {
-				sql += " WHERE user_id = '" + search.getSearchKeyword()+"'";
+				sql += " where USER_ID LIKE '%'||'" + search.getSearchKeyword() + "'||'%'";
 			} else if ( search.getSearchCondition().equals("1") && !search.getSearchKeyword().equals("")) {
-				sql += " WHERE user_name ='" + search.getSearchKeyword()+"'";
+				sql += " where USER_NAME LIKE '%'||'" + search.getSearchKeyword() + "'||'%'";
 			}
 		}
 		sql += " ORDER BY user_id";
-		
-		System.out.println("UserDAO::Original SQL :: " + sql);
 		
 		//==> TotalCount GET
 		int totalCount = this.getTotalCount(sql);
