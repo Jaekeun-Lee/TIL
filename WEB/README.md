@@ -2,7 +2,6 @@
 :octocat: Today I Learned !
 
 
-## Java
 :memo: Model2 + MVC
 * [01.Model 2 MVC Practice](https://github.com/Jaekeun-Lee/TIL/tree/master/WEB/01.Model2MVCShop(stu))
 
