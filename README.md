@@ -13,7 +13,7 @@
 ## Servlt / JSP
 * [Model 2 MVC Practice](https://github.com/Jaekeun-Lee/TIL/tree/master/WEB)
 
-# 📝Note
+📝Note
 > <h3 id=1>Java SE</h3>
 * [1.](#)
 
