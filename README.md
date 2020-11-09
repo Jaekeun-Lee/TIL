@@ -21,5 +21,5 @@
 * [Spring Framework](https://ljg960730.tistory.com/122)   
 
 ## ETC
-* [용어 정리](#)
+* [용어 정리](https://github.com/Jaekeun-Lee/TIL/tree/master/Note)
 
