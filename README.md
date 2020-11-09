@@ -13,6 +13,8 @@
 ## Servlt / JSP
 * [Model 2 MVC Practice](https://github.com/Jaekeun-Lee/TIL/tree/master/WEB)
 
+## 용어정리
+* [1.](#)
 
 ## ETC
 * [용어 정리](#)
