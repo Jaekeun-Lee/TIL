@@ -61,7 +61,7 @@ public class UserServiceTest {
 		Assert.assertEquals("test@test.com", user.getEmail());
 	}
 	
-	//@Test
+	@Test
 	public void testGetUser() throws Exception {
 		
 		User user = new User();
@@ -160,7 +160,7 @@ public class UserServiceTest {
 	 	Assert.assertEquals(3, list.size());
 	 	
 		//==> console 확인
-	 	//System.out.println(list);
+	 	System.out.println(list);
 	 	
 	 	Integer totalCount = (Integer)map.get("totalCount");
 	 	System.out.println(totalCount);
@@ -218,7 +218,7 @@ public class UserServiceTest {
 	 	System.out.println(totalCount);
 	 }
 	 
-	 @Test
+	 //@Test
 	 public void testGetUserListByUserName() throws Exception{
 		 
 	 	Search search = new Search();
@@ -244,7 +244,7 @@ public class UserServiceTest {
 	 	map = userService.getUserList(search);
 	 	
 	 	list = (List<Object>)map.get("list");
-	 	Assert.assertEquals(0, list.size());
+	 	Assert.assertEquals(3, list.size());
 	 	
 		//==> console 확인
 	 	System.out.println(list);
