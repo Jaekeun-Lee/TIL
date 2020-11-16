@@ -55,21 +55,13 @@ public class Search {
 	}
 
 	public int getEndRowNum() {
-		return endRowNum;
+		return getCurrentPage()*getPageSize();
 	}
-
-	public void setEndRowNum(int endRowNum) {
-		this.endRowNum = endRowNum;
-	}
-
+	
 	public int getStartRowNum() {
-		return startRowNum;
+		return (getCurrentPage()-1)*getPageSize()+1;
 	}
-
-	public void setStartRowNum(int startRowNum) {
-		this.startRowNum = startRowNum;
-	}
-
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

@@ -62,10 +62,10 @@
 		FROM users
 		<if test="searchCondition != null">
 			<where>
-				<if test="searchCondition == 0 and searchKeyword !='' ">
+				<if test="searchCondition == 0 and searchKeyword !=null ">
 					user_id = #{searchKeyword}
 				</if>
-				<if test="searchCondition == 1 and searchKeyword !='' ">
+				<if test="searchCondition == 1 and searchKeyword !=null ">
 					user_name = #{searchKeyword}
 				</if>
 			</where>

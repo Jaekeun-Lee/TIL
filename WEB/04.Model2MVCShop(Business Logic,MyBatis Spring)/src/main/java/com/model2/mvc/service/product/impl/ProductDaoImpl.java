@@ -18,11 +18,6 @@ public class ProductDaoImpl implements ProductDao {
 	@Qualifier("sqlSessionTemplate")
 	private SqlSession sqlSession;
 
-	public void setSqlSession(SqlSession sqlSession) {
-		System.out.println("::" + getClass() + ".setSqlSession() Call....");
-		this.sqlSession = sqlSession;
-	}
-
 	public ProductDaoImpl() {
 		System.out.println("::" + getClass() + ".default Constructor Call....");
 	}

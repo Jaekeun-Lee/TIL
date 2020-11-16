@@ -19,7 +19,7 @@
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
-	<insert id="insertProduct" parameterType="com.model2.mvc.service.domain.Product" >
+	<insert id="insertProduct" parameterType="product" >
 	 	INSERT
 		INTO product ( prod_no , prod_name , prod_detail, manufacture_day , price, image_file, reg_date ) 
 		VALUES(	seq_product_prod_no.nextval, #{prodName}, #{prodDetail:VARCHAR}, #{manuDate:VARCHAR}, #{price:NUMERIC}, #{fileName:VARCHAR}, SYSDATE )
@@ -32,7 +32,7 @@
 		WHERE prod_no = #{value}
 	</select>
 	
-	<update id="updateProduct" parameterType="com.model2.mvc.service.domain.Product">
+	<update id="updateProduct" parameterType="product">
 		UPDATE product 
 		<set>
 			<if test="prodName != null"> prod_name = #{prodName} , </if>
@@ -44,7 +44,7 @@
 		WHERE prod_no = #{prodNo}
 	</update>
 	
-	<select id="getProductList" parameterType="com.model2.mvc.common.Search" resultMap="productSelectMap">
+	<select id="getProductList" parameterType="search" resultMap="productSelectMap">
 		SELECT *
 		FROM ( SELECT ROW_NUMBER() OVER(ORDER BY 
 		<choose>
