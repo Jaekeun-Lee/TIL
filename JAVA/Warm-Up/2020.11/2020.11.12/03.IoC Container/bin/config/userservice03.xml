@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	
+	xmlns:context="http://www.springframework.org/schema/context"
+	
+	xmlns:util="http://www.springframework.org/schema/util"
+	
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<context:property-placeholder location="classpath:config/userservice02.properties"/>
+	
+	<bean id="user08" class="spring.service.domain.User">
+		<property name="age" value="${user.age}"/>
+		<property name="userId" value="${user.userId}"/>
+		<property name="password" value="${user.password}"/>
+	</bean>
+	
+	<util:properties id="userProperties" location="classpath:config/userservice03.properties"/>
+	
+	<bean id="user09" class="spring.service.domain.User">
+		<property name="age" value="#{userProperties['user.age']}"/>
+		<property name="userId" value="#{userProperties['user.userId']}"/>
+		<property name="password" value="#{userProperties['user.password']}"/>
+	</bean>
+	
+</beans>
