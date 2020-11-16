@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration
+ 		 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ 		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+  						
+<!--	
+	mybatis-config.xml :: MyBatis Framework 의 핵심 MetaData 로 아래의 설정
+	- properties 관리 : 애플리케이션 배포시 공통부분, 각 환경별 다른 값들은 Properties
+	                           파일에 독립적으로 관리.
+	- ClassName 관리 : FQCN(Full Qualified Class Name) 을 별칭(Alias)관리
+	- 기타 설정 : 트랜잭션처리, 커넥션풀 설정, SQL 등 여러 환경설정을 등록,설정...   
+-->	  						
+
+<configuration>
+
+  <environments default="development">
+  
+    <environment id="development">
+      <!-- Transaction Definition -->
+      <transactionManager type="JDBC"/>
+ 	   <!-- javax.sql.DataSource Definition -->      
+      <dataSource type="POOLED">
+        <property name="driver"  value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"/>
+        <property name="username"  value="ibatis"/>
+        <property name="password" value="ibatis"/>
+      </dataSource>
+    </environment>
+    
+  </environments>
+
+  <!-- SQL Definition :: file include -->
+  <mappers>
+    <mapper resource="sql/UserMapper.xml"/>
+    <mapper resource="sql/UserMapper01.xml"/>
+    <mapper resource="sql/UserMapper02.xml"/>
+    <mapper resource="sql/UserMapper03.xml"/>
+  </mappers>
+
+</configuration>
