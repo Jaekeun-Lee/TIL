@@ -1,6 +1,6 @@
 package mybatis.service.user.test;
 
-import java.io.Reader;
+import java.io.Reader; 
 
 import mybatis.service.domain.User;
 
@@ -17,47 +17,47 @@ public class MyBatisTestApp04 {
 	///main method
 	public static void main(String[] args) throws Exception{
 		
-		//==> 1. xml metadata ÀÐ´Â Stream »ý¼º
+		//==> 1. xml metadata ì½ëŠ” Stream ìƒì„±
 		Reader reader = Resources.getResourceAsReader("sql/mybatis-config01.xml");
 		
-		//==> 2. Reader °´Ã¼¸¦ ÀÌ¿ë xml metadata ¿¡ ¼³Á¤µÈ °¢Á¤ Á¤º¸¸¦ Á¢±Ù, »ç¿ë°¡´ÉÇÑ 
-		//==>     SqlSessionÀ» »ý¼ºÇÏ´Â SqlSessionFactory  instance »ý¼º
+		//==> 2. Reader ê°ì²´ë¥¼ ì´ìš© xml metadata ì— ì„¤ì •ëœ ê°ì • ì •ë³´ë¥¼ ì ‘ê·¼, ì‚¬ìš©ê°€ëŠ¥í•œ 
+		//==>     SqlSessionì„ ìƒì„±í•˜ëŠ” SqlSessionFactory  instance ìƒì„±
 		SqlSessionFactory sqlSessionFactory 
 											= new SqlSessionFactoryBuilder().build(reader);
-		//==>3. SqlSessionFactory ¸¦ ÅëÇØ autoCommit true ÀÎ SqlSession instance »ý¼º
+		//==>3. SqlSessionFactory ë¥¼ í†µí•´ autoCommit true ì¸ SqlSession instance ìƒì„±
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		System.out.println("\n");
 		
-		//==> Test ¿ë user instance »ý¼º ¹× age / regData null setting
-		User user = new User("user04","ÁÖ¸ù","user04",null,0);
+		//==> Test ìš© user instance ìƒì„± ë° age / regData null setting
+		User user = new User("user04","ì£¼ëª½","user04",null,0);
 	
-		//1. UserMapper04.addUser01 Test  :: users table age/grade/redDate ÀÔ·Â°ª È®ÀÎ:NG 
+		//1. UserMapper04.addUser01 Test  :: users table age/grade/redDate ìž…ë ¥ê°’ í™•ì¸:NG 
 		System.out.println(":: 1. addUser01(INSERT)  ? "
 													+ sqlSession.insert("UserMapper04.addUser01",user));
 		System.out.println("\n");
 		
-		//2. UserMapper04.addUser02 Test :: users table age/grade/redDate ÀÔ·Â°ª È®ÀÎ:NG
+		//2. UserMapper04.addUser02 Test :: users table age/grade/redDate ìž…ë ¥ê°’ í™•ì¸:NG
 		user.setUserId("user05");
 		System.out.println(":: 2. addUser02(INSERT)  ? "
 													+ sqlSession.insert("UserMapper04.addUser02",user));
 		System.out.println("\n");
 		
-		//3. UserMapper04.addUer03 Test  :: users table age/grade/redDate ÀÔ·Â°ª È®ÀÎ:OK
+		//3. UserMapper04.addUer03 Test  :: users table age/grade/redDate ìž…ë ¥ê°’ í™•ì¸:OK
 		user.setUserId("user06");
-		//==> Dynamic SQL(?) »ç¿ë Ã³¸® :: ÃßÈÄ ÇÐ½À..	
+		//==> Dynamic SQL(?) ì‚¬ìš© ì²˜ë¦¬ :: ì¶”í›„ í•™ìŠµ..	
 		System.out.println(":: 3. addUser03(INSERT)  ? "
 													+ sqlSession.insert("UserMapper04.addUser03",user));
 		System.out.println("\n");
 		
-		//4. UserMapper04.addUser04 Test  :: users table age/grade/redDate ÀÔ·Â°ª È®ÀÎ:OK
+		//4. UserMapper04.addUser04 Test  :: users table age/grade/redDate ìž…ë ¥ê°’ í™•ì¸:OK
 		user.setUserId("user07");
-		//==> Dynamic SQL(?) »ç¿ë Ã³¸® :: ÃßÈÄ ÇÐ½À..
+		//==> Dynamic SQL(?) ì‚¬ìš© ì²˜ë¦¬ :: ì¶”í›„ í•™ìŠµ..
 		System.out.println(":: 4. addUser04(INSERT)  ? "
 													+ sqlSession.insert("UserMapper04.addUser04",user));
 		System.out.println("\n");
 		
 		//END::SqlSession  close
-		System.out.println("::END::SqlSession ´Ý±â..");
+		System.out.println("::END::SqlSession ë‹«ê¸°..");
 		sqlSession.close();
 	}//end of main
 }//end of class
