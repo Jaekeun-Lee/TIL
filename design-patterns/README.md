@@ -1,6 +1,6 @@
 # Design Pattern
 
-###GoF(Gang of Four)에서는 23가지 디자인 패턴을 3가지 유형으로 분류합니다.
+### GoF(Gang of Four)에서는 23가지 디자인 패턴을 3가지 유형으로 분류합니다.
 
 
 　
