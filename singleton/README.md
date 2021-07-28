@@ -9,7 +9,7 @@
 ##싱글톤 패턴이란?
 
 전역 변수를 사용하지 않고 **객체를 하나만 생성**하도록 하며, 생성된 객체를 어디에서든지 참조할 수 있도록 하는 패턴  
-![image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fko.wikipedia.org%2Fwiki%2F%25EC%258B%25B1%25EA%25B8%2580%25ED%2584%25B4_%25ED%258C%25A8%25ED%2584%25B4&psig=AOvVaw2qro6ssX5rfIzzmHCA7ipo&ust=1627553685653000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIDI4ozEhfICFQAAAAAdAAAAABAD)
+![image](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Singleton_UML_class_diagram.svg/1920px-Singleton_UML_class_diagram.svg.png)
 
 
 싱글턴 패턴은 인스턴스가 오직 1개만 생성되야 하는 경우에 사용되는 패턴.  
