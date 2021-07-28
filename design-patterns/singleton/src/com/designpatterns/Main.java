@@ -1,8 +1,5 @@
 package com.designpatterns;
 
-import com.designpatterns.singleton.eager.SocketClient;
-import com.designpatterns.singleton.eager.TestAClazz;
-import com.designpatterns.singleton.eager.TestBClazz;
 import com.designpatterns.singleton.lazyholder.AClazz;
 import com.designpatterns.singleton.lazyholder.BClazz;
 import com.designpatterns.singleton.lazyholder.Singleton;
