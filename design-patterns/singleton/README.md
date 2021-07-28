@@ -1,4 +1,4 @@
-#Singleton Pattern
+# Singleton Pattern
 
 ```
 **Creational Pattern**   
@@ -6,7 +6,7 @@
 객체가 생성되는 과정의 유연성을 높이고 코드의 유지를 쉽게 함
 ```
 
-##싱글톤 패턴이란?
+## 싱글톤 패턴이란?
 
 전역 변수를 사용하지 않고 **객체를 하나만 생성**하도록 하며, 생성된 객체를 어디에서든지 참조할 수 있도록 하는 패턴  
 ![image](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Singleton_UML_class_diagram.svg/1920px-Singleton_UML_class_diagram.svg.png)
@@ -20,7 +20,7 @@
 
 
 
-##자바의 싱글턴 패턴(Sigleton Pattern in Java)
+## 자바의 싱글턴 패턴(Sigleton Pattern in Java)
 싱글턴 패턴의 공통적인 특징은 private constructor 를 가진다는 것과, static method 를 사용한다는 점이다.
 
 
