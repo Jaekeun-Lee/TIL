@@ -46,3 +46,9 @@ Spring RestController를 통해 Client로부터 전달받은 요청(request, inp
   @Email // 이메일 형식만가능 (기본 제공)
   @Pattern(regexp="?") // 직접 정규식을 쓸 수 있음
 ```
+
+
+## Custom Validation
+
+1. AssertTrue / False와 같은 method지정을 통해 Custom logic 적용
+2. ConstraintValidator를 적용하여 재사용 가능한 Custom logic 적용

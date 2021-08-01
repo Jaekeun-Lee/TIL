@@ -24,7 +24,9 @@ public class ApiController {
             bindingResult.getAllErrors().forEach(objectError -> {
                 FieldError fieldError = (FieldError) objectError;
 
-                sb.append("Error Field = " + fieldError.getField());
+                sb.append("Error Field = ");
+                sb.append(fieldError.getField());
+                sb.append("\n");
                 sb.append(objectError.getDefaultMessage());
             });
 
