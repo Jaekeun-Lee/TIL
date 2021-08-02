@@ -152,9 +152,9 @@ public class CClazz implements IObserver{
 
 
 이제 메인 프로그램 입니다. ConcreteSubject 및 A, B, C 인스턴스를 생성하는데 A, B, C 각 인스턴스가 옵저버로서 ConcreteSubject 인스턴스에 등록됩니다. 마지막 줄인 setValue(10)을 호출하면 모든 옵저버의 update가 호출됩니다.
+
 ```java
-import dp.button.Button;
-import dp.button.IButtonListener;
+
 import dp.update.*;
 
 public class Main {
