@@ -1,5 +1,6 @@
 package com.example.aop.controller;
 
+import com.example.aop.annotation.Timer;
 import com.example.aop.dto.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,5 +18,13 @@ public class RestApiController {
     @PostMapping("/post")
     public ResponseEntity<User> post(@RequestBody User user) {
         return ResponseEntity.status(HttpStatus.OK).body(user);
+    }
+
+    @Timer
+    @DeleteMapping("/delete")
+    public void delete() throws InterruptedException {
+
+        // db logic
+        Thread.sleep(1000 * 2);
     }
 }
